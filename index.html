@@ -8,142 +8,132 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: 'Segoe UI', sans-serif;
-}
+    body {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #f0f2f5; /* Light grey background for better contrast */
+        padding: 20px;
+    }
 
-body{
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:  white;
-}
+    .card {
+        background: #c7ecfd;
+        padding: 40px 30px;
+        border-radius: 20px;
+        width: 100%;
+        max-width: 380px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        color: #333; /* Darker text for readability on light blue */
+    }
 
-.card{
-    background: #53EAFD;
-    backdrop-filter: blur(10px);
-    padding:40px 30px;
-    border-radius:20px;
-    width:350px;
-    text-align:center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    color:white;
-}
+    .logo {
+        width: 110px;
+        margin-bottom: 15px;
+        background: white; /* Ensures logo stands out */
+        padding: 5px;
+        border-radius: 5px;
+    }
 
-.logo{
-    width:110px;
-    margin-bottom:15px;
-}
+    h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+        letter-spacing: 1px;
+        color: #000;
+    }
 
-h1{
-    font-size:22px;
-    margin-bottom:5px;
-    letter-spacing:1px;
-}
+    .tagline {
+        font-size: 13px;
+        margin-bottom: 20px;
+        font-weight: 500;
+    }
 
-.tagline{
-    font-size:13px;
-    margin-bottom:20px;
-    opacity:0.9;
-}
+    .info {
+        font-size: 14px;
+        margin-bottom: 25px;
+        line-height: 1.5;
+    }
 
-.info{
-    font-size:14px;
-    margin-bottom:25px;
-    opacity:0.85;
-}
+    .buttons a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 12px 0;
+        padding: 14px;
+        border-radius: 10px;
+        text-decoration: none;
+        font-weight: 600;
+        color: white;
+        transition: 0.3s ease;
+    }
 
-.buttons a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    margin:12px 0;
-    padding:12px;
-    border-radius:10px;
-    text-decoration:none;
-    font-weight:600;
-    color:white;
-    transition:0.3s ease;
-}
+    /* Specific Button Colors */
+    .call { background: #1abc9c; }
+    .email { background: #D14836; }
+    .whatsapp { background: #25D366; }
+    .facebook { background: #1877F2; }
+    .googlemap { background: #4285F4; }
 
-.call{
-    background:#1abc9c;
-}
-.email{
-    background:#D14836;
-}
-.whatsapp{
-    background:#25D366;
-}
-.facebook{
-    background:#1877F2;
-}
-.google map{
-    background:#4285F4;
-}
+    .buttons a:hover {
+        transform: scale(1.03);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
 
-.buttons a:hover{
-    transform:scale(1.05);
-    box-shadow:0 5px 15px rgba(0,0,0,0.3);
-}
-
-.footer{
-    margin-top:20px;
-    font-size:11px;
-    opacity:0.7;
-}
-
+    .footer {
+        margin-top: 25px;
+        font-size: 11px;
+        opacity: 0.8;
+    }
 </style>
 </head>
 
 <body>
 
 <div class="card">
+    <img src="Cropped_Image.png" class="logo" alt="Company Logo">
 
-<img src="Cropped_Image.png" class="logo" alt="Company Logo">
+    <h1>OneIndica Enterprise</h1>
+    <p class="tagline">The New Spirit of India</p>
 
-<h1>OneIndica Enterprise</h1>
-<p class="tagline">The New Spirit of India</p>
+    <p class="info">
+        Beside Akanta Apan, Near Rajbhog Sweet, Hospital Road, Deuli, Belda, West Medinipur, 721424, W.B., India <br>
+        <strong>GSTIN: 19AAJFO7371H1ZS.</strong>
+    </p>
 
-<p class="info">
-Beside Akanta Apan, Near Rajbhog Sweet, Hospital Road, Deuli, Belda, West Medinipur, 721424, W.B., India <br>
-GSTIN:19AAJFO7371H1ZS.
-</p>
+    <div class="buttons">
+        <a href="tel:+919392173729" class="call">
+            <i class="fa-solid fa-phone"></i> Call Now
+        </a>
 
-<div class="buttons">
-<a href="tel:+919392173729" class="call">
-<i class="fa-solid fa-phone"></i> Call Now
-</a>
+        <a href="mailto:oneindicaenterprise@gmail.com" class="email">
+            <i class="fa-solid fa-envelope"></i> Send Email
+        </a>
 
-<a href="mailto:oneindicaenterprise@gmail.com" class="email">
-<i class="fa-solid fa-envelope"></i> Send Email
-</a>
+        <a href="https://wa.me/919392173729" class="whatsapp">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
 
-<a href="https://wa.me/919392173729" class="whatsapp">
-<i class="fa-brands fa-whatsapp"></i> WhatsApp
-</a>
+        <a href="https://www.facebook.com/profile.php?id=61579805344612" class="facebook">
+            <i class="fa-brands fa-facebook-f"></i> Facebook
+        </a>
 
-<a href="https://www.facebook.com/profile.php?id=61579805344612">
-<i class="fa-brands fa-facebook-f"></i> Facebook
-</a>
+        <a href="https://maps.google.com" class="googlemap">
+            <i class="fa-solid fa-location-dot"></i> Google Map
+        </a>
+    </div>
 
-<a href="https://maps.app.goo.gl/CpiRFXWXGAadJEb19">
-<i class="fa-brands fa-google map-f"></i> Google Map
-</a>
-
-
-</div>
-
-<div class="footer">
-© 2026 OneIndica Enterprise
-</div>
-
+    <div class="footer">
+        © 2026 OneIndica Enterprise
+    </div>
 </div>
 
 </body>
