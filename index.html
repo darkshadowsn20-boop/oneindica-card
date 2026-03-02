@@ -8,11 +8,9 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-    /* --- 10 SECOND ANIMATION STYLES --- */
+     /* --- EXTENDED 10s ANIMATION STYLES --- */
     #welcome-screen {
         position: fixed;
-        top: 0;
-        left: 0;
         width: 100%;
         height: 100%;
         background: #000;
@@ -21,30 +19,31 @@
         justify-content: center;
         align-items: center;
         z-index: 9999;
-        /* Animation: Wait 10s then fade out for 1s */
-        animation: fadeOut 1s ease forwards 10s; 
+        /* Screen starts fading out at 9s and finishes at 10s */
+        animation: fadeOut 1s ease forwards 9s; 
     }
 
     .welcome-text {
         font-family: 'Segoe UI', sans-serif;
-        color: #FC33FF; /* Your custom pink */
-        font-size: 32px;
+        color: #FC33FF;
+        font-size: 28px;
         font-weight: bold;
-        letter-spacing: 8px;
+        letter-spacing: 3px;
+        text-align: center;
         text-transform: uppercase;
         opacity: 0;
-        /* Fades in quickly at the start */
-        animation: fadeInUp 1.5s ease forwards 0.5s;
+        /* Text fades in and stays */
+        animation: fadeInUp 2s ease forwards 0.5s;
     }
 
     .loading-bar {
-        width: 200px;
+        width: 250px;
         height: 3px;
         background: rgba(255, 255, 255, 0.1);
         margin-top: 30px;
         position: relative;
         overflow: hidden;
-        border-radius: 10px;
+        border-radius: 5px;
     }
 
     .loading-bar::after {
@@ -53,9 +52,9 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: #006479; /* Your custom teal */
-        /* Bar loops for the duration of the 10s wait */
-        animation: loading 2.5s linear infinite;
+        background: #006479;
+        /* Slowed down loading bar to 9 seconds */
+        animation: loadingProgress 9s linear forwards;
     }
 
     @keyframes fadeInUp {
@@ -63,17 +62,15 @@
         to { opacity: 1; transform: translateY(0); }
     }
 
-    @keyframes loading {
-        to { left: 100%; }
+    @keyframes loadingProgress {
+        to { left: 0%; } /* Fills the bar slowly over 9s */
     }
 
     @keyframes fadeOut {
-        from { opacity: 1; visibility: visible; }
         to { opacity: 0; visibility: hidden; }
     }
 
     /* --- MAIN PAGE STYLES --- */
-
 body {
         min-height: 100vh;
         display: flex;
