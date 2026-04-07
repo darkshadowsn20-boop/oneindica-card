@@ -8,186 +8,145 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 
 <style>
-      /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-    /* --- THE FIX: WELCOME SCREEN --- */
-    #welcome-screen {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background: #000000; /* Solid Black */
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
-        /* Screen fades out at 9s */
-        animation: fadeOutScreen 1s ease forwards 9s;
-    }
-
-    .welcome-text {
-        color: #FC33FF; /* Your Pink */
-        font-size: 24px;
-        font-weight: bold;
-        text-align: center;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        line-height: 1.5;
-        /* Text fades in immediately */
-        opacity: 0;
-        animation: fadeInText 2s ease forwards 0.5s;
-    }
-
-    .loading-container {
-        width: 200px;
-        height: 4px;
-        background: rgba(255, 255, 255, 0.1);
-        margin-top: 30px;
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .loading-bar {
-        width: 0%;
-        height: 100%;
-        background: #006479; /* Your Teal */
-        /* Bar fills up over 8.5 seconds */
-        animation: fillBar 8.5s linear forwards 0.5s;
-    }
-
-    /* Animations */
-    @keyframes fadeInText {
-        to { opacity: 1; transform: translateY(0); }
-        from { opacity: 0; transform: translateY(20px); }
-    }
-
-    @keyframes fillBar {
-        to { width: 100%; }
-    }
-
-    @keyframes fadeOutScreen {
-        to { opacity: 0; visibility: hidden; }
-    }
-
-    /* --- MAIN CARD STYLES --- */
-
+/* Background */
 body {
-        min-height: 100vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        /* Techy Milkyway Background */
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
-                    url('https://images.unsplash.com/photo-1464802686167-b939a6910659?auto=format&fit=crop&w=1920&q=80');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        padding: 20px;
-    }
-
-    .card {
-        background: #B8F4FF;
-        padding: 40px 30px;
-        border-radius: 20px;
-        width: 100%;
-        max-width: 380px;
-        text-align: center;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-        color: #333; /* Darker text for readability on light blue */
-    }
-
-    .logo {
-        width: 110px;
-        margin-bottom: 15px;
-        background: white; /* Ensures logo stands out */
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    h1 {
-        font-size: 22px;
-        margin-bottom: 5px;
-        letter-spacing: 1px;
-        color: #006479;
-    }
-
-    .tagline {
-    font-size: 13px;
-    margin-bottom: 20px;
-    color: #FC33FF; /* Your requested pink color */
-    font-weight: 600;
-    opacity: 1; /* Set to 1 so the color is vibrant */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url('https://images.unsplash.com/photo-1464802686167-b939a6910659?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
 }
 
+/* Card */
+.card {
+    background: #B8F4FF;
+    padding: 40px 30px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 380px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
 
-    .info {
-        font-size: 14px;
-        margin-bottom: 25px;
-        line-height: 1.5;
-    }
+/* Logo */
+.logo {
+    width: 110px;
+    margin-bottom: 15px;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+}
 
-    .buttons a {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 12px;
-        margin: 12px 0;
-        padding: 14px;
-        border-radius: 10px;
-        text-decoration: none;
-        font-weight: 600;
-        color: white;
-        transition: 0.3s ease;
-    }
+/* Text */
+h1 {
+    font-size: 22px;
+    color: #006479;
+}
 
-    /* Specific Button Colors */
-    .call { background: #1abc9c; }
-    .email { background: #D14836; }
-    .whatsapp { background: #25D366; }
-    .facebook { background: #1877F2; }
-    .googlemap { background: #92D756; }
+.tagline {
+    font-size: 13px;
+    color: #FC33FF;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
 
-    .buttons a:hover {
-        transform: scale(1.03);
-        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-    }
+.info {
+    font-size: 14px;
+    margin-bottom: 15px;
+}
 
-    .footer {
-        margin-top: 25px;
-        font-size: 11px;
-        opacity: 0.8;
-    }
+/* STORE ICONS (YOUR MARKED AREA) */
+.store-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 30px;
+}
+
+.store-box {
+    width: 55px;
+    height: 55px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.store-box img {
+    width: 28px;
+}
+
+.store-box:hover {
+    transform: scale(1.1);
+}
+
+/* Buttons */
+.buttons a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 10px 0;
+    padding: 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: 600;
+}
+
+/* Colors */
+.call { background: #1abc9c; }
+.email { background: #D14836; }
+.whatsapp { background: #25D366; }
+.facebook { background: #1877F2; }
+.googlemap { background: #92D756; }
+
+.buttons a:hover {
+    transform: scale(1.03);
+}
+
+/* Footer */
+.footer {
+    margin-top: 20px;
+    font-size: 11px;
+}
 </style>
 </head>
 
 <body>
 
 <div class="card">
-    <img src="Cropped_Image.png" class="logo" alt="Company Logo">
+    <img src="Cropped_Image.png" class="logo">
 
     <h1>OneIndica Enterprise<sup>™</sup></h1>
-    <p class="tagline">The New Spirit of India
-    </p>
-   <strong>GSTIN: 19AAJFO7371H1ZS.</strong>
-    </p>
+    <p class="tagline">The New Spirit of India</p>
 
     <p class="info">
-        Beside Akanta Apan, Near Rajbhog Sweet, Hospital Road, Deuli, Belda, West Medinipur, West Bengal, 721424, India <br>
+        <strong>GSTIN: 19AAJFO7371H1ZS.</strong><br>
+        Beside Akanta Apan, Near Rajbhog Sweet, Hospital Road, Deuli, Belda,
+        West Medinipur, West Bengal, 721424, India
+    </p>
 
+    <!-- Flipkart & Amazon (YOUR MARKED POSITION) -->
+    <div class="store-row">
+        <a href="https://www.flipkart.com/search?q=OneIndica%20Enterprise&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off" target="_blank" class="store-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/731/731978.png">
+        </a>
+
+        <a href="https://www.amazon.in/s?k=OneIndica&ref=bl_dp_s_web_0" target="_blank" class="store-box">
+            <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png">
+        </a>
+    </div>
+
+    <!-- Buttons -->
     <div class="buttons">
-          <!-- Store Buttons -->
-<div class="store-buttons">
-    <a href="https://www.flipkart.com/search?q=OneIndica%20Enterprise&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off" class="store flipkart" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/731/731978.png" alt="Flipkart">
-    </a>
-
-    <a href="https://www.amazon.in/s?k=OneIndica&ref=bl_dp_s_web_0" class="store amazon" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5968/5968282.png" alt="Amazon">
-    </a>
-</div>
         <a href="tel:+919392173729" class="call">
             <i class="fa-solid fa-phone"></i> Call Now
         </a>
