@@ -10,7 +10,30 @@
 <style>
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-/* Background */
+/* ===== PRELOADER ===== */
+#preloader {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.loader-logo {
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== BACKGROUND ===== */
 body {
     min-height: 100vh;
     display: flex;
@@ -22,7 +45,7 @@ body {
     background-position: center;
 }
 
-/* Card */
+/* ===== CARD ===== */
 .card {
     background: #B8F4FF;
     padding: 40px 30px;
@@ -33,39 +56,19 @@ body {
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
 }
 
-/* ✅ LOGO FIX + PREMIUM ROTATION */
+/* ===== LOGO (NO ROTATION NOW) ===== */
 .logo {
     width: 110px;
-    height: 110px;              /* prevent jump */
+    height: 110px;
     object-fit: contain;
     margin-bottom: 15px;
     background: white;
     padding: 8px;
     border-radius: 10px;
-
-    animation: rotateLogo 8s linear infinite; /* smooth slow rotation */
 }
 
-/* Rotation Animation */
-@keyframes rotateLogo {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-/* Optional: pause on hover (premium feel) */
-.logo:hover {
-    animation-play-state: paused;
-}
-
-/* Text */
-h1 {
-    font-size: 22px;
-    color: #006479;
-}
+/* ===== TEXT ===== */
+h1 { font-size: 22px; color: #006479; }
 
 .tagline {
     font-size: 13px;
@@ -79,7 +82,7 @@ h1 {
     margin-bottom: 15px;
 }
 
-/* STORE ICONS */
+/* ===== STORE ICONS ===== */
 .store-row {
     display: flex;
     justify-content: space-between;
@@ -97,7 +100,6 @@ h1 {
     position: relative;
 }
 
-/* Image */
 .store-box img {
     width: 40px;
 }
@@ -117,12 +119,12 @@ h1 {
     white-space: nowrap;
 }
 
-/* Flipkart → right side */
+/* Flipkart → right */
 .right-text .hover-text {
     left: 70px;
 }
 
-/* Amazon → left side */
+/* Amazon → left */
 .left-text .hover-text {
     right: 70px;
 }
@@ -132,7 +134,7 @@ h1 {
     opacity: 1;
 }
 
-/* Buttons */
+/* ===== BUTTONS ===== */
 .buttons a {
     display: flex;
     align-items: center;
@@ -147,7 +149,6 @@ h1 {
     transition: 0.2s;
 }
 
-/* Colors */
 .call { background: #1abc9c; }
 .email { background: #D14836; }
 .whatsapp { background: #25D366; }
@@ -158,7 +159,7 @@ h1 {
     transform: scale(1.03);
 }
 
-/* Footer */
+/* ===== FOOTER ===== */
 .footer {
     margin-top: 20px;
     font-size: 11px;
@@ -167,6 +168,11 @@ h1 {
 </head>
 
 <body>
+
+<!-- PRELOADER -->
+<div id="preloader">
+    <img src="Cropped_Image.png" class="loader-logo">
+</div>
 
 <div class="card">
     <img src="Cropped_Image.png" class="logo">
@@ -180,20 +186,20 @@ h1 {
         West Medinipur, West Bengal, 721424, India
     </p>
 
-    <!-- Flipkart & Amazon -->
+    <!-- STORE LINKS -->
     <div class="store-row">
         <a href="https://www.flipkart.com/search?q=OneIndica%20Enterprise" target="_blank" class="store-box right-text">
             <img src="flipkart.png">
-            <span class="hover-text">Buy on Flipkart</span>
+            <span class="hover-text">Buy Our Products on Flipkart</span>
         </a>
 
         <a href="https://www.amazon.in/s?k=OneIndica" target="_blank" class="store-box left-text">
             <img src="amazon.png">
-            <span class="hover-text">Buy on Amazon</span>
+            <span class="hover-text">Buy Our Products on Amazon</span>
         </a>
     </div>
 
-    <!-- Buttons -->
+    <!-- BUTTONS -->
     <div class="buttons">
         <a href="tel:+919392173729" class="call">
             <i class="fa-solid fa-phone"></i> Call Now
@@ -220,6 +226,13 @@ h1 {
         © 2026 OneIndica Enterprise
     </div>
 </div>
+
+<!-- PRELOADER SCRIPT -->
+<script>
+window.addEventListener("load", function(){
+    document.getElementById("preloader").style.display = "none";
+});
+</script>
 
 </body>
 </html>
